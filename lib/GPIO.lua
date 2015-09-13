@@ -29,8 +29,8 @@ local cpuInfo = FS.readFileSync("/proc/cpuinfo")
 local rev = 2
 
 if cpuInfo then 
-	cpuInfoArray = helper.split(cpuInfo, "\n")
-	for k,v in ipairs(cpuInfoArray) do
+	local cpuInfoArray = helper.split(cpuInfo, "\n")
+	for _,v in ipairs(cpuInfoArray) do
 		local idx = string.find(v, "revision", 1)
 		if idx and idx >= 0 then
 			local revNum = tonumber(helper.split(v, ":")[2], 16) 
@@ -124,7 +124,6 @@ function DigitalPin:digitalWrite( value )
 			local str = "Error occored while writing value"
 			str = str .. value .. " to pin " .. that.pinNum
 			that:emit("error", str)
-			p(err, value)
 		else
 			that:emit("digitalWrite")
 		end
@@ -168,10 +167,8 @@ end
 
 function DigitalPin:_createGPIOPin( )
 	local that = self
-	p("Creating Pin For ", self.pinNum)
 	FS.writeFile(self:_exportPath(), self.pinNum, function ( err )
 		if err then 
-			p(err, self.pinNum)
 			that:emit("error", "Error whil createing pin files")
 		else
 			that:_openPin()

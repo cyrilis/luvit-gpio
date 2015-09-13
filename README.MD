@@ -10,7 +10,7 @@ A GPIO Library for Luvit
 DigitalPin = require("GPIO")
 
 pin = DigitalPin:new({
-	pinNum = 13
+	pin = 13
 	mode = "w"
 })
 
@@ -23,7 +23,7 @@ end)
 -- Read
 
 pin2 = DigitalPin:new({
-	pinNum = 14
+	pin = 14
 	mode = "r"
 })
 
