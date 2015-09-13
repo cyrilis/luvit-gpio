@@ -28,7 +28,7 @@ pin2 = DigitalPin:new({
 })
 
 pin2:connect()
-pin2:digitalRead()
+pin2:digitalRead(1000) -- read data every 1000 ms
 pin2:on("digitalRead", function(data)
 	p(data)
 end)
