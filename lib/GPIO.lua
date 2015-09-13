@@ -37,7 +37,7 @@ if cpuInfo then
 			if revNum and revNum < 3 then
 				rev = 1
 			end
-			return false
+			break
 		end
 	end
 end
