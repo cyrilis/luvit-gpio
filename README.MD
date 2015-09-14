@@ -6,29 +6,34 @@ A GPIO Library for Luvit
 
 ```lua
 
--- Write 
 DigitalPin = require("GPIO")
 
+-- Write 
 pin = DigitalPin:new({
 	pin = 13
 	mode = "w"
 })
-
 pin:connect()
-pin:setHigh()  -- or pin:digitalWrite(1)
+
+pin:on("open", function()
+	pin:setHigh()  -- or pin:digitalWrite(1)
+end)
+
 pin:on("digitalWrite", function()
 	p("Write Success")
 end)
 
 -- Read
-
 pin2 = DigitalPin:new({
-	pin = 14
+	pin = 13
 	mode = "r"
 })
-
 pin2:connect()
-pin2:digitalRead(1000) -- read data every 1000 ms
+
+pin2:on("open", function()
+	pin2:digitalRead(100) -- read data every 100 ms
+end)
+
 pin2:on("digitalRead", function(data)
 	p(data)
 end)
