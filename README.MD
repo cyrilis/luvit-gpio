@@ -1,12 +1,18 @@
 # GPIO for Luvit
 
-A GPIO Library for Luvit 
+A GPIO Library for Luvit
+
+## Install
+
+```bash
+lit install cyrilis/gpio
+```
 
 ## Usage:
 
 ```lua
 
-DigitalPin = require("GPIO")
+DigitalPin = require("gpio")
 
 -- Write 
 pin = DigitalPin:new({
