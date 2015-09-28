@@ -5,7 +5,7 @@
 --
 
 return {
-    name = "cyrilis/mooncake",
+    name = "cyrilis/gpio",
     version = "0.0.1",
     homepage = "https://github.com/cyrilis/luvit-gpio",
     description = "PI GPIO Lib for Luvit",
